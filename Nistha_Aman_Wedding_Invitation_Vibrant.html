@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fff5e8">
+<title>Nistha & Aman — Wedding Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+
+:root{
+  --cream:#fff8ec;
+  --peach:#ffd8c2;
+  --coral:#ee806b;
+  --rose:#d95d78;
+  --plum:#713b59;
+  --gold:#c9973e;
+  --sage:#8eaa91;
+  --ink:#402b35;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:Montserrat,Arial,sans-serif;overflow-x:hidden;
+}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:4}
+.music{
+  position:fixed;right:15px;top:15px;z-index:20;border:1px solid rgba(113,59,89,.18);
+  background:rgba(255,248,236,.88);backdrop-filter:blur(10px);color:var(--plum);
+  border-radius:999px;padding:10px 14px;font-size:12px;font-weight:600;box-shadow:0 5px 20px #713b5915;
+}
+.music span{display:inline-block;margin-right:5px}
+.hero{
+  min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;
+  padding:70px 20px 55px;overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,#fff 0 8%,transparent 25%),
+    radial-gradient(circle at 85% 28%,#ffe2ce 0 7%,transparent 28%),
+    linear-gradient(145deg,#fff8ec 0%,#ffe9dc 45%,#f7d9e0 100%);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.45;
+}
+.hero:before{width:300px;height:300px;background:#f5b59c;left:-150px;bottom:-110px}
+.hero:after{width:280px;height:280px;background:#b8d2b9;right:-140px;top:-100px}
+.frame{
+  position:relative;z-index:2;width:min(100%,620px);padding:34px 18px;
+  border:1px solid #c9973e77;border-radius:34px;
+  background:#fff8ecaa;backdrop-filter:blur(4px);
+  box-shadow:0 20px 70px #713b5917;
+}
+.kicker{letter-spacing:.28em;font-size:11px;color:var(--plum);font-weight:600}
+.names{
+  margin:18px 0 8px;font-family:"Playfair Display",serif;font-size:clamp(48px,14vw,88px);
+  line-height:.94;color:var(--plum);font-weight:700;
+}
+.amp{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:.65em}
+.subtitle{font-family:"Cormorant Garamond",serif;font-size:25px;color:#87506b}
+.divider{display:flex;align-items:center;gap:10px;justify-content:center;margin:24px 0}
+.divider i{width:50px;height:1px;background:var(--gold)}
+.date{font-size:13px;letter-spacing:.18em;font-weight:600;color:#704c5a}
+.scroll{margin-top:35px;font-size:11px;letter-spacing:.18em;color:#8d6a76}
+.section{padding:78px 18px;position:relative}
+.inner{width:min(100%,900px);margin:auto}
+.center{text-align:center}
+.eyebrow{font-size:10px;letter-spacing:.25em;color:var(--rose);font-weight:600}
+h2{font-family:"Playfair Display",serif;font-size:clamp(31px,8vw,50px);margin:10px 0 14px;color:var(--plum)}
+.lead{max-width:650px;margin:auto;line-height:1.85;font-size:14px;color:#705965}
+.story{
+  background:linear-gradient(180deg,#fff8ec,#fff0e8);
+}
+.story-card{
+  margin-top:30px;padding:27px;border-radius:26px;background:#ffffff99;
+  border:1px solid #c9973e33;box-shadow:0 12px 40px #713b5910;text-align:center;
+}
+.events{background:#fff8ec}
+.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.card{
+  padding:25px 13px;border-radius:24px;background:#fff;
+  border:1px solid #d95d7830;box-shadow:0 10px 30px #713b5910;
+}
+.icon{font-size:30px;margin-bottom:12px}
+.card h3{font-family:"Playfair Display",serif;color:var(--plum);font-size:21px;margin:4px 0}
+.card p{font-size:12px;line-height:1.7;color:#765e68;margin:8px 0 0}
+.wedding{
+  background:linear-gradient(135deg,#713b59 0%,#9b4e6c 52%,#d97668 100%);
+  color:white;text-align:center;overflow:hidden;
+}
+.wedding h2,.wedding .eyebrow{color:white}
+.wedding .eyebrow{opacity:.8}
+.wedding .lead{color:#fff;opacity:.9}
+.big-date{font-family:"Playfair Display",serif;font-size:clamp(45px,12vw,76px);margin:22px 0 8px}
+.venue{font-size:14px;letter-spacing:.08em}
+.parents{background:#fff3ea}
+.parent-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.parent{
+  background:#fff;border-radius:24px;padding:24px 14px;text-align:center;
+  border:1px solid #c9973e33;
+}
+.parent small{font-size:10px;letter-spacing:.18em;color:var(--rose)}
+.parent strong{display:block;font-family:"Playfair Display",serif;font-size:20px;color:var(--plum);margin-top:9px}
+.countdown{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:30px auto 0;max-width:500px
+}
+.timebox{background:#fff;border-radius:16px;padding:14px 5px;color:var(--plum)}
+.timebox b{display:block;font-family:"Playfair Display",serif;font-size:26px}
+.timebox span{font-size:9px;letter-spacing:.12em;color:#8b6b77}
+.mapbtn,.sharebtn{
+  display:inline-block;margin-top:24px;padding:13px 20px;border-radius:999px;
+  text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.08em;
+  border:1px solid #fff;background:#fff;color:var(--plum);
+}
+.closing{
+  min-height:65svh;display:grid;place-items:center;text-align:center;
+  background:
+    radial-gradient(circle at 50% 10%,#fff 0 4%,transparent 30%),
+    linear-gradient(180deg,#fff3ea,#f8dce2);
+}
+.closing p{font-family:"Cormorant Garamond",serif;font-size:27px;line-height:1.3;color:var(--plum);margin:12px auto;max-width:600px}
+.footer{font-size:10px;letter-spacing:.14em;color:#8c6975;margin-top:25px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:650px){
+  .event-grid{grid-template-columns:1fr}
+  .card{padding:22px}
+  .parent-grid{grid-template-columns:1fr}
+  .section{padding:65px 16px}
+  .frame{padding:30px 14px}
+}
+@media(min-width:651px){
+  .event-grid{gap:20px}.card{padding:30px 20px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="petals"></canvas>
+<button class="music" id="musicBtn"><span>♪</span> MUSIC OFF</button>
+
+<header class="hero">
+  <div class="frame">
+    <div class="kicker">A CELEBRATION OF LOVE</div>
+    <div class="names">Nistha <span class="amp">&</span> Aman</div>
+    <div class="subtitle">are getting married</div>
+    <div class="divider"><i></i><span>✦</span><i></i></div>
+    <div class="date">10 DECEMBER 2026 · PARIJAT RESORT</div>
+    <div class="scroll">SCROLL TO BEGIN THE CELEBRATION ↓</div>
+  </div>
+</header>
+
+<section class="section story">
+  <div class="inner reveal">
+    <div class="center">
+      <div class="eyebrow">WITH JOY IN OUR HEARTS</div>
+      <h2>Two hearts, one beautiful beginning</h2>
+      <p class="lead">With the blessings of our families and the warmth of everyone we love, we invite you to be part of our wedding celebrations.</p>
+    </div>
+    <div class="story-card">
+      <div style="font-size:28px">❀ ✦ ❀</div>
+      <p class="lead">Come celebrate the laughter, music, colours and memories that will make these days unforgettable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section events">
+  <div class="inner reveal">
+    <div class="center">
+      <div class="eyebrow">THE CELEBRATIONS</div>
+      <h2>Three days of colour & joy</h2>
+    </div>
+    <div class="event-grid">
+      <article class="card">
+        <div class="icon">🌼</div><h3>Haldi</h3>
+        <p>9 DECEMBER<br>A bright, joyful celebration filled with sunshine and blessings.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🌿</div><h3>Mehendi</h3>
+        <p>9 DECEMBER<br>Henna, laughter, music and beautiful moments with family.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🎶</div><h3>Sangeet</h3>
+        <p>9 DECEMBER<br>An evening of rhythm, dance, smiles and unforgettable memories.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section wedding">
+  <div class="inner reveal">
+    <div class="eyebrow">THE WEDDING DAY</div>
+    <h2>Join us as we begin forever</h2>
+    <div class="big-date">10 DECEMBER</div>
+    <div class="venue">PARIJAT RESORT · HAIDERGARH</div>
+    <div id="countdown" class="countdown">
+      <div class="timebox"><b id="days">--</b><span>DAYS</span></div>
+      <div class="timebox"><b id="hours">--</b><span>HOURS</span></div>
+      <div class="timebox"><b id="mins">--</b><span>MINUTES</span></div>
+      <div class="timebox"><b id="secs">--</b><span>SECONDS</span></div>
+    </div>
+    <a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parijat+Resort+Haidergarh">OPEN LOCATION</a>
+  </div>
+</section>
+
+<section class="section parents">
+  <div class="inner reveal">
+    <div class="center">
+      <div class="eyebrow">WITH THE BLESSINGS OF</div>
+      <h2>Our Families</h2>
+    </div>
+    <div class="parent-grid">
+      <div class="parent">
+        <small>BRIDE'S PARENTS</small>
+        <strong>KAMAL PANDEY<br>&<br>LAXMI PANDEY</strong>
+      </div>
+      <div class="parent">
+        <small>GROOM'S PARENTS</small>
+        <strong>SHYAM TIWARI<br>&<br>SUDHA TIWARI</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="inner reveal">
+    <div style="font-size:30px">✦ ❀ ✦</div>
+    <h2>Save the date</h2>
+    <p>Your presence will make our celebration brighter, happier and truly complete.</p>
+    <div class="footer">WITH LOVE · NISTHA & AMAN</div>
+    <button class="sharebtn" id="shareBtn">SHARE INVITATION</button>
+  </div>
+</section>
+
+<script>
+// Gentle floating petals
+const canvas=document.getElementById('petals'),ctx=canvas.getContext('2d');
+let W,H,petals=[];
+function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;petals=Array.from({length:22},()=>({
+ x:Math.random()*W,y:Math.random()*H,r:2+Math.random()*3,v:.25+Math.random()*.55,s:(Math.random()-.5)*.5,a:Math.random()*6.28
+}));}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ petals.forEach(p=>{
+   p.y+=p.v;p.x+=p.s;p.a+=.01;
+   if(p.y>H+10){p.y=-10;p.x=Math.random()*W}
+   ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);
+   ctx.globalAlpha=.34;ctx.fillStyle='#d95d78';
+   ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*1.7,0,0,Math.PI*2);ctx.fill();ctx.restore();
+ });
+ requestAnimationFrame(draw);
+}
+addEventListener('resize',resize);resize();draw();
+
+// Scroll reveals
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+
+// Countdown
+const target=new Date('2026-12-10T00:00:00+05:30').getTime();
+function tick(){
+ let d=Math.max(0,target-Date.now());
+ document.getElementById('days').textContent=Math.floor(d/86400000);
+ d%=86400000;
+ document.getElementById('hours').textContent=Math.floor(d/3600000);
+ d%=3600000;
+ document.getElementById('mins').textContent=Math.floor(d/60000);
+ d%=60000;
+ document.getElementById('secs').textContent=Math.floor(d/1000);
+}
+tick();setInterval(tick,1000);
+
+// Share
+document.getElementById('shareBtn').onclick=async()=>{
+ const data={title:'Nistha & Aman — Wedding Invitation',text:'Join us for the wedding celebration of Nistha & Aman.',url:location.href};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}
+ else{try{await navigator.clipboard.writeText(location.href);alert('Invitation link copied!')}catch(e){alert('Copy the website address from your browser.')}}
+};
+
+// Soft instrumental-style WebAudio melody. Browsers require a tap before sound.
+let audioCtx=null,playing=false,timer=null,step=0;
+const notes=[261.63,329.63,392.00,523.25,392.00,329.63,293.66,392.00];
+function tone(freq,when,dur,vol=.028){
+ const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+ o.type='sine';o.frequency.value=freq;
+ g.gain.setValueAtTime(0,when);g.gain.linearRampToValueAtTime(vol,when+.05);
+ g.gain.exponentialRampToValueAtTime(.001,when+dur);
+ o.connect(g).connect(audioCtx.destination);o.start(when);o.stop(when+dur+.02);
+}
+function musicLoop(){
+ if(!playing)return;
+ const now=audioCtx.currentTime;
+ tone(notes[step%notes.length],now,.62,.025);
+ if(step%4===0)tone(notes[(step+2)%notes.length]/2,now,.9,.012);
+ step++;
+ timer=setTimeout(musicLoop,650);
+}
+document.getElementById('musicBtn').onclick=async()=>{
+ if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+ if(audioCtx.state==='suspended')await audioCtx.resume();
+ playing=!playing;
+ const b=document.getElementById('musicBtn');
+ if(playing){b.innerHTML='<span>♪</span> MUSIC ON';musicLoop()}
+ else{b.innerHTML='<span>♪</span> MUSIC OFF';clearTimeout(timer)}
+};
+</script>
+</body>
+</html>
